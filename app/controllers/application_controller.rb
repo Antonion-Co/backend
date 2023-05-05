@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 
-  def authenticate
+  def authenticate!
     token = request.headers['Authorization']&.split(' ')&.last
     return show_unauthorized unless token.present?
 

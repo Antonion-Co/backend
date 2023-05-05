@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate!, only: [:show]
 
   def create
     user = User.new(user_params)
@@ -7,6 +8,11 @@ class UsersController < ApplicationController
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
+  end
+
+  def show
+    # render json: { current_user: @current_user }
+    @user = @current_user
   end
 
   private

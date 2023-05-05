@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  get 'services/create'
+  get 'app_services/index'
   scope '/api' do
     scope '/users' do
+      get '/current_user', to: 'users#show'
       post '/sign_in', to: 'sessions#create'
       post '/sign_up', to: 'users#create'
+    end
+
+    scope '/app_services' do
+      get '/', to: 'app_services#index'
+      post '/', to: 'app_services#create'
+    end
+
+    scope '/services' do
+      post '/', to: 'services#create'
     end
   end
 

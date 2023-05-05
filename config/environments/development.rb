@@ -64,4 +64,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # add ngrok url to allow for testing with mobile devices
+  config.hosts << "3a44-2a0d-5600-6-8000-00-c182.ngrok-free.app"
 end
