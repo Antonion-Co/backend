@@ -1,0 +1,1 @@
+  - <subscription_name> ($<subscription_price>/month)

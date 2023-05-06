@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'services/create'
-  get 'app_services/index'
   scope '/api' do
     scope '/users' do
       get '/current_user', to: 'users#show'
@@ -15,6 +13,10 @@ Rails.application.routes.draw do
 
     scope '/services' do
       post '/', to: 'services#create'
+    end
+
+    scope '/messages' do
+      post '/', to: 'messages#create'
     end
   end
 

@@ -66,5 +66,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # add ngrok url to allow for testing with mobile devices
-  config.hosts << "3a44-2a0d-5600-6-8000-00-c182.ngrok-free.app"
+  config.hosts << "5d53-2605-6440-1018-1000-00-921c.ngrok-free.app"
 end

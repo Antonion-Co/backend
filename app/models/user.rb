@@ -17,4 +17,28 @@ class User < ApplicationRecord
   rescue JWT::DecodeError
     nil
   end
+
+  def budget_after_expenses
+    budget - services.map(&:app_service).map(&:price).sum
+  end
+
+  def perform_intent(intent, params = [])
+    case intent
+    when 'add_subscription'
+      add_subscription(params.dig(0, 'value'))
+    when 'remove_subscription'
+      remove_subscription(params.dig(0, 'value'))
+    when 'none'
+    end
+  end
+
+  def add_subscription(name)
+    service = AppService.find_by(name: name)
+    services.create(app_service: service)
+  end
+
+  def remove_subscription(name)
+    service = AppService.find_by(name: name)
+    services.find_by(app_service: service).destroy
+  end
 end
